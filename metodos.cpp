@@ -112,30 +112,8 @@ void mergeSort(int vec[], int left, int right) {
     }
 }
 
-// MÉTODO 6: QUICK SORT
-// -- Usa un “pivote”; coloca los menores a la izquierda y los mayores a la derecha, luego ordena recursivamente.
-int partition(int vec[], int low, int high) {
-    int pivot = vec[high];
-    int i = low - 1;
-    for (int j = low; j < high; j++) {
-        if (vec[j] < pivot) {
-            i++;
-            swap(vec[i], vec[j]);
-        }
-    }
-    swap(vec[i + 1], vec[high]);
-    return i + 1;
-}
 
-void quickSort(int vec[], int low, int high) {
-    if (low < high) {
-        int pi = partition(vec, low, high);
-        quickSort(vec, low, pi - 1);
-        quickSort(vec, pi + 1, high);
-    }
-}
-
-// MÉTODO 7: HEAP SORT
+// MÉTODO 6: HEAP SORT
 // -- Convierte el arreglo en un “montón” (heap) y luego extrae el mayor elemento, ordenando de forma descendente.
 void heapify(int vec[], int n, int i) {
     int largest = i;
@@ -166,7 +144,7 @@ void heapSort(int vec[], int n) {
     }
 }
 
-// MÉTODO 8: COMB SORT
+// MÉTODO 7: COMB SORT
 // -- Mejora del método burbuja, usa “saltos” grandes que van reduciéndose en cada pasada.
 void combSort(int vec[], int n) {
     int gap = n;
